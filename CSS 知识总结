@@ -1,0 +1,53 @@
+
+# 1.浏览器渲染原理
+
+根据HTML构建HTML树（DOM）
+根据CSS构建css树（CSSDOM）
+将两棵树合并成一棵渲染树（render tree）
+Layout布局（文档流 盒模型 计算大小和位置）
+Paint绘制（把边框颜色 文字颜色 阴影等画出来）
+Compose合成（根据层叠关系展示画面）
+
+# 2.CSS 动画的两种做法（transition 和 animation）
+
+## 2.1 trandition
+
+```
+#heart{
+       transition: all .5s;
+}
+```
+
+```
+#heart:hover{
+    transform:scale(2) ;
+}
+```
+选择器一：写一个transform并写一个相应的属性
+选择器二：再写transition并写该动画发生的部位，时间
+
+## 2.2animation
+```
+@keyframes heart {
+    0%{
+        transform: scale(1.0);
+    }
+    50%{
+        transform: scale(1.5);
+    }
+    100%{
+        transform: scale(2.0);
+    }
+    
+```
+
+```
+#heart{
+      animation: heart 700ms infinite alternate;
+
+}
+```
+选择器一：写一个keyframs，里面写动画发生的程度（%），再往里面写一个transform并写一个相应的属性
+选择器二：动画变化的时间 变化多久（一直变） 变化的方式（交替变）
+## 3.一点感想
+在学习CSS的过程中主要学习了css的几种布局（float，flex，gird），定位 动画。定位主要讲了页面的分层，几种样式再垂直于屏幕的方向是怎样层叠的，动画讲了两种做动画效果的方式，感觉之前将来的就忘了。后面还是要多复习.
